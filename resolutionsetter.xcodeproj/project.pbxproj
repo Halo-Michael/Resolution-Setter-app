@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		041F915D28F17A3400140299 /* killall in Resources */ = {isa = PBXBuildFile; fileRef = 041F915C28F17A3400140299 /* killall */; };
+		048817A028F5A2B400AD76E9 /* bin in Resources */ = {isa = PBXBuildFile; fileRef = 0488179F28F5A2B400AD76E9 /* bin */; };
 		04B0D3BA28EFDA97007D020A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0D3B928EFDA97007D020A /* AppDelegate.m */; };
 		04B0D3BD28EFDA97007D020A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0D3BC28EFDA97007D020A /* SceneDelegate.m */; };
 		04B0D3C028EFDA97007D020A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0D3BF28EFDA97007D020A /* ViewController.m */; };
@@ -18,8 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		041F915C28F17A3400140299 /* killall */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = killall; sourceTree = SOURCE_ROOT; };
 		04690F3328F067B300AD4001 /* resolutionsetter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = resolutionsetter.entitlements; sourceTree = "<group>"; };
+		0488179F28F5A2B400AD76E9 /* bin */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bin; sourceTree = SOURCE_ROOT; };
 		04B0D3B528EFDA97007D020A /* resolutionsetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = resolutionsetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B0D3B828EFDA97007D020A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04B0D3B928EFDA97007D020A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 				04B0D3C628EFDA98007D020A /* LaunchScreen.storyboard */,
 				04B0D3C928EFDA98007D020A /* Info.plist */,
 				04B0D3CA28EFDA98007D020A /* main.m */,
-				041F915C28F17A3400140299 /* killall */,
+				0488179F28F5A2B400AD76E9 /* bin */,
 			);
 			path = resolutionsetter;
 			sourceTree = "<group>";
@@ -138,7 +138,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				041F915D28F17A3400140299 /* killall in Resources */,
+				048817A028F5A2B400AD76E9 /* bin in Resources */,
 				04B0D3C828EFDA98007D020A /* LaunchScreen.storyboard in Resources */,
 				04B0D3C528EFDA98007D020A /* Assets.xcassets in Resources */,
 				04B0D3C328EFDA97007D020A /* Main.storyboard in Resources */,
@@ -232,7 +232,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -285,7 +285,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -313,12 +313,12 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.michael.resolutionsetter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -346,12 +346,12 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.michael.resolutionsetter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

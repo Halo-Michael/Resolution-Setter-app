@@ -26,6 +26,7 @@
 }
 
 - (IBAction)Set:(id)sender {
+	[_Set setUserInteractionEnabled:false];
 	if (vaildNumber(_Height.text) && vaildNumber(_Width.text)) {
 		removefile("/private/var/mobile/Library/Preferences/com.apple.iokit.IOMobileGraphicsFamily.plist", NULL, REMOVEFILE_RECURSIVE);
 		
@@ -39,12 +40,15 @@
 			[IOMobileGraphicsFamily writeToFile:@"/private/var/tmp/com.michael.iokit.IOMobileGraphicsFamily/com.apple.iokit.IOMobileGraphicsFamily.plist" atomically:NO];
 		lchown("/private/var/tmp/com.michael.iokit.IOMobileGraphicsFamily/com.apple.iokit.IOMobileGraphicsFamily.plist", 501, 501);
 		//CFPreferencesSynchronize(bundleID, userName, kCFPreferencesAnyHost);
-		spawnRoot([[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"killall"], @[@"-9", @"cfprefsd"], nil, nil);
+		spawnRoot(commandPath(@"killall"), @[@"-9", @"cfprefsd"], nil, nil);
 		//CFPreferencesSynchronize(bundleID, userName, kCFPreferencesAnyHost);
 		sleep(1);
-		spawnRoot([[NSBundle mainBundle].bundlePath stringByAppendingPathComponent:@"killall"], @[@"-9", @"backboardd"], nil, nil);
+		spawnRoot(commandPath(@"killall"), @[@"-9", @"backboardd"], nil, nil);
 		//killall(@"backboardd");
 		//sbreload();
+		[_Set setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Failed" attributes:@{NSFontAttributeName:_Set.titleLabel.font}] forState:UIControlStateNormal];
+	} else {
+		[_Set setUserInteractionEnabled:true];
 	}
 }
 

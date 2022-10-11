@@ -36,6 +36,11 @@ BOOL vaildNumber(NSString *string) {
 	return NO;
 }
 
+NSString* commandPath(NSString* command)
+{
+	return [[NSBundle mainBundle].bundlePath stringByAppendingFormat:@"/bin/%@", command];
+}
+
 NSString* getNSStringFromFile(int fd)
 {
 	NSMutableString* ms = [NSMutableString new];

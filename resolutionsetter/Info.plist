@@ -4,7 +4,7 @@
 <dict>
 	<key>TSRootBinaries</key>
 	<array>
-		<string>killall</string>
+		<string>bin/killall</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
