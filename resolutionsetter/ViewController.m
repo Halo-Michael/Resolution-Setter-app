@@ -8,6 +8,7 @@
 #import <Foundation/NSUserDefaults.h>
 #import "ViewController.h"
 #import <sys/stat.h>
+#import "helpers.h"
 
 @interface ViewController ()
 
@@ -39,13 +40,9 @@
 		NSDictionary *IOMobileGraphicsFamily = [NSDictionary dictionaryWithObjects:@[@([_Height.text longLongValue]), @([_Width.text longLongValue])] forKeys:@[@"canvas_height", @"canvas_width"]];
 			[IOMobileGraphicsFamily writeToFile:@"/private/var/tmp/com.michael.iokit.IOMobileGraphicsFamily/com.apple.iokit.IOMobileGraphicsFamily.plist" atomically:NO];
 		lchown("/private/var/tmp/com.michael.iokit.IOMobileGraphicsFamily/com.apple.iokit.IOMobileGraphicsFamily.plist", 501, 501);
-		//CFPreferencesSynchronize(bundleID, userName, kCFPreferencesAnyHost);
-		spawnRoot(commandPath(@"killall"), @[@"-9", @"cfprefsd"], nil, nil);
-		//CFPreferencesSynchronize(bundleID, userName, kCFPreferencesAnyHost);
+		xpc_crasher("com.apple.cfprefsd.daemon");
 		sleep(1);
-		spawnRoot(commandPath(@"killall"), @[@"-9", @"backboardd"], nil, nil);
-		//killall(@"backboardd");
-		//sbreload();
+		xpc_crasher("com.apple.backboard.hid-services.xpc");
 		[_Set setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Failed" attributes:@{NSFontAttributeName:_Set.titleLabel.font}] forState:UIControlStateNormal];
 	} else {
 		[_Set setUserInteractionEnabled:true];

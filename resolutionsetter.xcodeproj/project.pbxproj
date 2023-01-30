@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		048817A028F5A2B400AD76E9 /* bin in Resources */ = {isa = PBXBuildFile; fileRef = 0488179F28F5A2B400AD76E9 /* bin */; };
+		045AEBCD2988072A006A8D23 /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AEBCB2988072A006A8D23 /* helpers.m */; };
 		04B0D3BA28EFDA97007D020A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0D3B928EFDA97007D020A /* AppDelegate.m */; };
 		04B0D3BD28EFDA97007D020A /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0D3BC28EFDA97007D020A /* SceneDelegate.m */; };
 		04B0D3C028EFDA97007D020A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0D3BF28EFDA97007D020A /* ViewController.m */; };
@@ -18,8 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		045AEBCB2988072A006A8D23 /* helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = helpers.m; sourceTree = "<group>"; };
+		045AEBCC2988072A006A8D23 /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
 		04690F3328F067B300AD4001 /* resolutionsetter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = resolutionsetter.entitlements; sourceTree = "<group>"; };
-		0488179F28F5A2B400AD76E9 /* bin */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bin; sourceTree = SOURCE_ROOT; };
 		04B0D3B528EFDA97007D020A /* resolutionsetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = resolutionsetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B0D3B828EFDA97007D020A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		04B0D3B928EFDA97007D020A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -64,6 +65,8 @@
 		04B0D3B728EFDA97007D020A /* resolutionsetter */ = {
 			isa = PBXGroup;
 			children = (
+				045AEBCC2988072A006A8D23 /* helpers.h */,
+				045AEBCB2988072A006A8D23 /* helpers.m */,
 				04690F3328F067B300AD4001 /* resolutionsetter.entitlements */,
 				04B0D3B828EFDA97007D020A /* AppDelegate.h */,
 				04B0D3B928EFDA97007D020A /* AppDelegate.m */,
@@ -76,7 +79,6 @@
 				04B0D3C628EFDA98007D020A /* LaunchScreen.storyboard */,
 				04B0D3C928EFDA98007D020A /* Info.plist */,
 				04B0D3CA28EFDA98007D020A /* main.m */,
-				0488179F28F5A2B400AD76E9 /* bin */,
 			);
 			path = resolutionsetter;
 			sourceTree = "<group>";
@@ -138,7 +140,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				048817A028F5A2B400AD76E9 /* bin in Resources */,
 				04B0D3C828EFDA98007D020A /* LaunchScreen.storyboard in Resources */,
 				04B0D3C528EFDA98007D020A /* Assets.xcassets in Resources */,
 				04B0D3C328EFDA97007D020A /* Main.storyboard in Resources */,
@@ -156,6 +157,7 @@
 				04B0D3BA28EFDA97007D020A /* AppDelegate.m in Sources */,
 				04B0D3CB28EFDA98007D020A /* main.m in Sources */,
 				04B0D3BD28EFDA97007D020A /* SceneDelegate.m in Sources */,
+				045AEBCD2988072A006A8D23 /* helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +320,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.michael.resolutionsetter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -351,7 +353,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.michael.resolutionsetter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
