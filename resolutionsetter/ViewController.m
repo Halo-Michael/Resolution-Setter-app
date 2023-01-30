@@ -8,6 +8,8 @@
 #import <Foundation/NSUserDefaults.h>
 #import "ViewController.h"
 #import <sys/stat.h>
+#import "helpers.h"
+#import "grant_full_disk_access.h"
 
 @interface ViewController ()
 
@@ -16,6 +18,12 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+	grant_full_disk_access(^(NSError* _Nullable error){
+			if (error) {
+				[self->_Set setUserInteractionEnabled:false];
+				[self->_Set setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Unsupported" attributes:@{NSFontAttributeName:self->_Set.titleLabel.font}] forState:UIControlStateNormal];
+			}
+		});
 	NSDictionary *prefs = loadPrefs();
 	if (prefs != nil) {
 		[_Height setText:[NSString stringWithFormat:@"%@", prefs[@"canvas_height"]]];
@@ -39,13 +47,9 @@
 		NSDictionary *IOMobileGraphicsFamily = [NSDictionary dictionaryWithObjects:@[@([_Height.text longLongValue]), @([_Width.text longLongValue])] forKeys:@[@"canvas_height", @"canvas_width"]];
 			[IOMobileGraphicsFamily writeToFile:@"/private/var/tmp/com.michael.iokit.IOMobileGraphicsFamily/com.apple.iokit.IOMobileGraphicsFamily.plist" atomically:NO];
 		lchown("/private/var/tmp/com.michael.iokit.IOMobileGraphicsFamily/com.apple.iokit.IOMobileGraphicsFamily.plist", 501, 501);
-		//CFPreferencesSynchronize(bundleID, userName, kCFPreferencesAnyHost);
-		spawnRoot(commandPath(@"killall"), @[@"-9", @"cfprefsd"], nil, nil);
-		//CFPreferencesSynchronize(bundleID, userName, kCFPreferencesAnyHost);
+		xpc_crasher("com.apple.cfprefsd.daemon");
 		sleep(1);
-		spawnRoot(commandPath(@"killall"), @[@"-9", @"backboardd"], nil, nil);
-		//killall(@"backboardd");
-		//sbreload();
+		xpc_crasher("com.apple.backboard.hid-services.xpc");
 		[_Set setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Failed" attributes:@{NSFontAttributeName:_Set.titleLabel.font}] forState:UIControlStateNormal];
 	} else {
 		[_Set setUserInteractionEnabled:true];
