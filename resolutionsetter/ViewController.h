@@ -9,6 +9,14 @@
 #import <removefile.h>
 #import "helpers.h"
 
+#define PROC_ALL_PIDS        1
+#define PROC_PIDPATHINFO_MAXSIZE    (4*MAXPATHLEN)
+#define SafeFree(x) do { if (x) free(x); } while(false)
+#define SafeFreeNULL(x) do { SafeFree(x); (x) = NULL; } while(false)
+
+int proc_listpids(uint32_t type, uint32_t typeinfo, void *buffer, int buffersize);
+int proc_pidpath(int pid, void *buffer, uint32_t buffersize);
+
 #define bundleID CFSTR("com.apple.iokit.IOMobileGraphicsFamily")
 #define userName CFSTR("mobile")
 
@@ -29,6 +37,43 @@ BOOL vaildNumber(NSString *string) {
 			return YES;
 	}
 	return NO;
+}
+
+char *get_path_for_pid(pid_t pid) {
+	char *ret = NULL;
+	uint32_t path_size = PROC_PIDPATHINFO_MAXSIZE;
+	char *path = malloc(path_size);
+	if (path != NULL) {
+		if (proc_pidpath(pid, path, path_size) >= 0)
+			ret = strdup(path);
+		SafeFreeNULL(path);
+	}
+	return ret;
+}
+
+pid_t pidOfProcess(const char *name) {
+	char real[PROC_PIDPATHINFO_MAXSIZE];
+	bzero(real, sizeof(real));
+	realpath(name, real);
+	int numberOfProcesses = proc_listpids(PROC_ALL_PIDS, 0, NULL, 0);
+	pid_t pids[numberOfProcesses];
+	bzero(pids, sizeof(pids));
+	proc_listpids(PROC_ALL_PIDS, 0, pids, (int)sizeof(pids));
+	bool foundProcess = false;
+	pid_t processPid = 0;
+	for (int i = 0; i < numberOfProcesses && !foundProcess; ++i) {
+		if (pids[i] == 0)
+			continue;
+		char *path = get_path_for_pid(pids[i]);
+		if (path != NULL) {
+			if (strlen(path) > 0 && strcmp(path, real) == 0) {
+				processPid = pids[i];
+				foundProcess = true;
+			}
+			SafeFreeNULL(path);
+		}
+	}
+	return processPid;
 }
 
 NSDictionary *loadPrefs() {

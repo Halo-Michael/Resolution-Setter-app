@@ -42,7 +42,9 @@
 		lchown("/private/var/tmp/com.michael.iokit.IOMobileGraphicsFamily/com.apple.iokit.IOMobileGraphicsFamily.plist", 501, 501);
 		xpc_crasher("com.apple.cfprefsd.daemon");
 		sleep(1);
-		xpc_crasher("com.apple.backboard.hid-services.xpc");
+		if (kill(pidOfProcess("/usr/libexec/backboardd"), SIGTERM)) {
+			xpc_crasher("com.apple.backboard.hid-services.xpc");
+		}
 		[_Set setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Failed" attributes:@{NSFontAttributeName:_Set.titleLabel.font}] forState:UIControlStateNormal];
 	} else {
 		[_Set setUserInteractionEnabled:true];
