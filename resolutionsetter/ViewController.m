@@ -20,8 +20,10 @@
 - (void)viewDidLoad {
 	grant_full_disk_access(^(NSError* _Nullable error){
 			if (error) {
-				[self->_Set setUserInteractionEnabled:false];
-				[self->_Set setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Unsupported" attributes:@{NSFontAttributeName:self->_Set.titleLabel.font}] forState:UIControlStateNormal];
+				dispatch_async(dispatch_get_main_queue(), ^{
+					[self->_Set setUserInteractionEnabled:false];
+					[self->_Set setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Unsupported" attributes:@{NSFontAttributeName:self->_Set.titleLabel.font}] forState:UIControlStateNormal];
+				});
 			}
 		});
 	NSDictionary *prefs = loadPrefs();
