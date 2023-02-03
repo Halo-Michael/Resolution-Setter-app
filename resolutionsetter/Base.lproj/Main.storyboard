@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imk-7N-xTE">
-                                <rect key="frame" x="162.66666666666666" y="188.66666666666666" width="50" height="35"/>
+                                <rect key="frame" x="16" y="188.66666666666666" width="343" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Set"/>
                                 <connections>
@@ -64,6 +64,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="V78-ww-Gs6" secondAttribute="trailing" constant="16" id="0SM-km-uEZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Imk-7N-xTE" secondAttribute="trailing" constant="16" id="9fH-om-gUQ"/>
                             <constraint firstItem="4h9-Og-udY" firstAttribute="centerX" secondItem="VdA-pP-sUV" secondAttribute="centerX" id="9oO-gS-uqh"/>
                             <constraint firstItem="Imk-7N-xTE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="B0d-ja-rbE"/>
                             <constraint firstItem="ONH-RK-dOq" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CEj-ty-Avm"/>
@@ -73,6 +74,7 @@
                             <constraint firstItem="ONH-RK-dOq" firstAttribute="leading" secondItem="VdA-pP-sUV" secondAttribute="trailing" constant="8" id="Hf1-dv-kX2"/>
                             <constraint firstItem="Rcq-tZ-sq0" firstAttribute="centerX" secondItem="V78-ww-Gs6" secondAttribute="centerX" id="Lfz-pu-Q4O"/>
                             <constraint firstItem="4h9-Og-udY" firstAttribute="top" secondItem="vjR-w4-w01" secondAttribute="bottom" constant="16" id="PHf-5k-3yT"/>
+                            <constraint firstItem="Imk-7N-xTE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="QZL-Xn-Aj8"/>
                             <constraint firstItem="V78-ww-Gs6" firstAttribute="width" secondItem="VdA-pP-sUV" secondAttribute="width" id="eMV-he-OSe"/>
                             <constraint firstItem="Imk-7N-xTE" firstAttribute="top" secondItem="ONH-RK-dOq" secondAttribute="bottom" constant="24" id="gg0-7h-ROZ"/>
                             <constraint firstItem="vjR-w4-w01" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="lFI-Pw-MhD"/>
