@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import <removefile.h>
-#import "helpers.h"
+#import "TSUtil.h"
 
 #define PROC_ALL_PIDS        1
 #define PROC_PIDPATHINFO_MAXSIZE    (4*MAXPATHLEN)
@@ -86,6 +86,6 @@ NSDictionary *loadPrefs() {
 			return prefs;
 	}
 	removefile("/private/var/mobile/Library/Preferences/com.apple.iokit.IOMobileGraphicsFamily.plist", NULL, REMOVEFILE_RECURSIVE);
-	xpc_crasher("com.apple.cfprefsd.daemon");
+	spawnRoot(commandPath(@"killall"), @[@"-9", @"cfprefsd"], nil, nil);
 	return nil;
 }

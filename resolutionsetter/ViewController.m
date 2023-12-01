@@ -8,7 +8,7 @@
 #import <Foundation/NSUserDefaults.h>
 #import "ViewController.h"
 #import <sys/stat.h>
-#import "helpers.h"
+#import "TSUtil.h"
 
 @interface ViewController ()
 
@@ -40,10 +40,11 @@
 		NSDictionary *IOMobileGraphicsFamily = [NSDictionary dictionaryWithObjects:@[@([_Height.text longLongValue]), @([_Width.text longLongValue])] forKeys:@[@"canvas_height", @"canvas_width"]];
 			[IOMobileGraphicsFamily writeToFile:@"/private/var/tmp/com.michael.iokit.IOMobileGraphicsFamily/com.apple.iokit.IOMobileGraphicsFamily.plist" atomically:NO];
 		lchown("/private/var/tmp/com.michael.iokit.IOMobileGraphicsFamily/com.apple.iokit.IOMobileGraphicsFamily.plist", 501, 501);
-		xpc_crasher("com.apple.cfprefsd.daemon");
+		NSLog(@"%@",commandPath(@"killall"));
+		spawnRoot(commandPath(@"killall"), @[@"-9", @"cfprefsd"], nil, nil);
 		sleep(1);
 		if (kill(pidOfProcess("/usr/libexec/backboardd"), SIGTERM)) {
-			xpc_crasher("com.apple.backboard.hid-services.xpc");
+			spawnRoot(commandPath(@"killall"), @[@"-9", @"backboardd"], nil, nil);
 		}
 		[_Set setAttributedTitle:[[NSAttributedString alloc] initWithString:@"Failed" attributes:@{NSFontAttributeName:_Set.titleLabel.font}] forState:UIControlStateNormal];
 	} else {

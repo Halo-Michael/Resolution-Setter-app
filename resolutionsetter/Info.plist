@@ -21,5 +21,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>TSRootBinaries</key>
+	<array>
+		<string>bin/killall</string>
+	</array>
 </dict>
 </plist>
